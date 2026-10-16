@@ -1,33 +1,69 @@
-# Group-Project---STACK-Group-8
-## Project Description
+# 2D Stack Visualizer
 
-The Stack Visualization project is a Java application that demonstrates
-the Last-In, First-Out (LIFO) principle of a stack.
-
-## Features
-
-- Push an element onto the stack.
-- Pop an element from the top.
-- Peek at the top element.
-- Check whether the stack is empty.
-- Clear the stack.
-- Generate random stack elements.
-- Display the stack visually.
-
-## Technologies Used
-
-- Java
-- Git
-- GitHub
-
-## Stack Implementation
-
-The program uses an array-based stack with a maximum capacity of 10 elements.
+## Group Name: Group 8
 
 ## Group Members
+- Jun Kleo Allexis Alon
+- Nico Gallardo
+- Christian Bantasan
+- Jetroh Mejorada
+- Jerwen Baja
 
-Add the names of all group members here.
+## Description
+The 2D Stack Visualizer is a Java Swing application that demonstrates the
+Last-In, First-Out (LIFO) principle of a stack. Each element is drawn as a
+block, and the display updates after every operation so it always matches
+the real state of the stack.
 
+## Features
+- PUSH an integer onto the stack (with input validation).
+- POP the top element.
+- PEEK at the top element without removing it (highlighted in orange).
+- CHECK STACK (IsEmpty) reports whether the stack is empty, and its size.
+- CLEAR the stack.
+- RANDOM refills the stack with 1–10 random values (1–100).
+- STACK OVERFLOW and STACK UNDERFLOW status messages.
+- TOP marker and operation history (last 10 operations).
+
+## Requirements
+- Java JDK 11 or newer
+- Git (optional, for cloning)
+
+## How to Run
+```bash
+git clone https://github.com/junkleoallexisalon/stack-visualization-group-8.git
+cd stack-visualization-group-8
+javac *.java
+java StackVisualizer
+```
+
+## Project Structure
+```
+stack-visualization-group-8/
+├── ArrayStack.java        # Stack component (array-based, max 10)
+├── StackVisualizer.java   # Swing GUI component
+├── TESTS.md               # Stack trace and boundary test cases
+├── screenshots/           # Program screenshots
+└── README.md
+```
+
+## Stack Implementation
+The stack is a custom array-based bounded stack (`ArrayStack`) with a maximum
+capacity of 10. An `int[]` stores the elements and an `int top` index
+tracks the top element. Methods: `push()`, `pop()`, `peek()`, `isEmpty()`,
+`isFull()`, `size()`, `capacity()`, `clear()` and `toArray()` (returns a copy
+for drawing). The GUI (`StackVisualizer`) only talks to the stack through
+these methods and never touches the internal array.
+
+## Screenshots
+
+## AI Disclosure
+- 
 ## Contributors
-
-Group 8
+| Member | Contribution |
+|---|---|
+| Jun Kleo Allexis Alon | ArrayStack component (push, pop, peek, clear, toArray) |
+| Nico Gallardo | GUI layout, stack drawing, history |
+| Christian Bantasan | PUSH, POP and PEEK buttons |
+| Jetroh Mejorada | CLEAR, CHECK STACK and RANDOM buttons |
+| Jerwen Baja | Test cases, README and screenshots |
