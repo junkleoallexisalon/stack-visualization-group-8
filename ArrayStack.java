@@ -32,7 +32,11 @@ public class ArrayStack {
     public int size() {
         return top + 1;
     } 
-
+public int capacity() {
+        return data.length;
+  
+    }  
+    
     public void push(int value) {
     if (isFull()) {
         throw new IllegalStateException("STACK OVERFLOW: Cannot push, stack is full");
@@ -50,4 +54,27 @@ public int pop() {
     return value;
 }
 
+
+    public int peek() {
+        if (isEmpty()) {
+            throw new IllegalStateException(
+                "STACK EMPTY: Nothing to peek, stack is empty"
+            );
+        }
+        return data[top];
+    }
+
+    public void clear() {
+        top = -1;
+    }
+
+    public int[] toArray() {
+        int[] copy = new int[size()];
+
+        for (int i = 0; i < copy.length; i++) {
+            copy[i] = data[i];
+        }
+
+        return copy;
+    }
 }
