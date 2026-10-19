@@ -32,3 +32,19 @@ public class ArrayStack {
         return data.length;
     }
 
+    public void push(int value) {
+        if (isFull()) {
+            throw new IllegalStateException("STACK OVERFLOW: Cannot push, stack is full");
+        }
+        top++;
+        data[top] = value;
+    }
+
+    public int pop() {
+        if (isEmpty()) {
+            throw new IllegalStateException("STACK UNDERFLOW: Cannot pop, stack is empty");
+        }
+        int value = data[top];
+        top--;
+        return value;
+    }
