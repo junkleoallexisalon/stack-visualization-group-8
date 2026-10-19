@@ -21,4 +21,22 @@ public class StackVisualizer extends JFrame {
   private final LinkedList<String> history = new LinkedList<>();
     private final JTextArea historyArea = new JTextArea(12, 22);
     private int operationCount = 0;
-}
+
+     public StackVisualizer() {
+        super("2D Stack Visualizer");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLayout(new BorderLayout(10, 10));
+
+        JPanel inputRow = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        inputRow.add(new JLabel("Value:"));
+        inputRow.add(inputField);
+        add(inputRow, BorderLayout.NORTH);
+
+        add(stackPanel, BorderLayout.CENTER);
+
+        historyArea.setEditable(false);
+        historyArea.setLineWrap(true);
+        historyArea.setWrapStyleWord(true);
+        JScrollPane historyScroll = new JScrollPane(historyArea);
+        historyScroll.setBorder(BorderFactory.createTitledBorder("History (last 10)"));
+        add(historyScroll, BorderLayout.WEST);
