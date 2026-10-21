@@ -74,3 +74,58 @@ public class StackVisualizer extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
      }
+
+     private void doPush() {
+        try {
+            int value = Integer.parseInt(inputField.getText().trim());
+            stack.push(value);
+            refresh("PUSHED: " + value + " is now the top.", false);
+        } catch (NumberFormatException ex) {
+            refresh("INVALID INPUT: Please enter a whole number.", false);
+        } catch (IllegalStateException ex) {
+            refresh(ex.getMessage(), false);
+        }
+        inputField.setText("");
+        inputField.requestFocus();
+    }
+
+    private void doPop() {
+        try {
+            int removed = stack.pop();
+            refresh("POPPED: " + removed + " was removed from the top.", false);
+        } catch (IllegalStateException ex) {
+            refresh(ex.getMessage(), false);
+        }
+    }
+
+    private void doPeek() {
+        try {
+            int topValue = stack.peek();
+            refresh("PEEK: The top element is " + topValue + " (not removed).", true);
+        } catch (IllegalStateException ex) {
+            refresh(ex.getMessage(), false);
+        }
+    }
+
+    private void doClear() {
+        stack.clear();
+        refresh("CLEARED: The stack is now empty.", false);
+    }
+
+    private void doIsEmpty() {
+        if (stack.isEmpty()) {
+            refresh("IS EMPTY: Yes, the stack is empty.", false);
+        } else {
+            refresh("IS EMPTY: No, the stack is not empty. Size = " + stack.size()
+                    + " of " + stack.capacity() + (stack.isFull() ? " (FULL)." : "."), false);
+        }
+    }
+
+    private void doRandom() {
+        stack.clear();
+        int count = random.nextInt(stack.capacity()) + 1;
+        for (int i = 0; i < count; i++) {
+            stack.push(random.nextInt(100) + 1);
+        }
+        refresh("RANDOM: Stack refilled with " + count + " random element(s).", false);
+    }
