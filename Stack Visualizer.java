@@ -40,3 +40,37 @@ public class StackVisualizer extends JFrame {
         JScrollPane historyScroll = new JScrollPane(historyArea);
         historyScroll.setBorder(BorderFactory.createTitledBorder("History (last 10)"));
         add(historyScroll, BorderLayout.WEST);
+
+        JPanel buttons = new JPanel(new GridLayout(0, 1, 5, 5));
+        JButton pushBtn = new JButton("PUSH");
+        JButton popBtn = new JButton("POP");
+        JButton peekBtn = new JButton("PEEK");
+        JButton clearBtn = new JButton("CLEAR");
+        JButton isEmptyBtn = new JButton("IsEmpty");
+        JButton randomBtn = new JButton("RANDOM");
+        buttons.add(pushBtn);
+        buttons.add(popBtn);
+        buttons.add(peekBtn);
+        buttons.add(clearBtn);
+        buttons.add(isEmptyBtn);
+        buttons.add(randomBtn);
+        JPanel east = new JPanel(new BorderLayout());
+        east.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 10));
+        east.add(buttons, BorderLayout.NORTH);
+        add(east, BorderLayout.EAST);
+
+        statusLabel.setBorder(BorderFactory.createEmptyBorder(5, 10, 10, 10));
+        add(statusLabel, BorderLayout.SOUTH);
+
+        pushBtn.addActionListener(e -> doPush());
+        inputField.addActionListener(e -> doPush());
+        popBtn.addActionListener(e -> doPop());
+        peekBtn.addActionListener(e -> doPeek());
+        clearBtn.addActionListener(e -> doClear());
+        isEmptyBtn.addActionListener(e -> doIsEmpty());
+        randomBtn.addActionListener(e -> doRandom());
+
+        pack();
+        setLocationRelativeTo(null);
+        setVisible(true);
+     }
