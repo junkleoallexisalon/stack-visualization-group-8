@@ -48,3 +48,23 @@ public class ArrayStack {
         top--;
         return value;
     }
+
+         public int peek() {
+        if (isEmpty()) {
+            throw new IllegalStateException("STACK EMPTY: Nothing to peek, stack is empty");
+        }
+        return data[top];
+    }
+
+    public void clear() {
+        top = -1;
+    }
+
+    public int[] toArray() {
+        int[] copy = new int[size()];
+        for (int i = 0; i < copy.length; i++) {
+            copy[i] = data[i];
+        }
+        return copy;
+    }
+}
