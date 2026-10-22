@@ -1,9 +1,9 @@
 /* Description: Swing GUI that visualizes an array-based stack (push, pop, peek, clear, check, random).
-   Programmed by: <your name> <course> <cn> <subject>
+   Programmed by: Group 8 BSIT 2ND YEAR CN 48079 CC104
    Last Modified: October 12, 2026
    Version: 1.0
-   Acknowledgements: <list sites / generative AI used and the prompt>
-*/
+   Acknowledgements: claude for guidance.
+   
 import javax.swing.*;
 import java.awt.*;
 import java.util.LinkedList;
