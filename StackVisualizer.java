@@ -175,10 +175,27 @@ public class StackVisualizer extends JFrame {
                     if (isTop) {
                         g2.setColor(highlightPeek ? Color.ORANGE : new Color(80, 170, 90));
                     } else {
-                        g2.setColor(new Color(110, 160, 220));
+                       g2.setColor(new Color(110, 160, 220));
                     }
                     g2.fillRect(x, y, BLOCK_W, SLOT_H - 4);
                     g2.setColor(Color.BLACK);
                     g2.drawRect(x, y, BLOCK_W, SLOT_H - 4);
                     g2.drawString(String.valueOf(items[i]), x + BLOCK_W / 2 - 8, y + SLOT_H / 2 + 2);
+                    if (isTop) {
+                        g2.drawString("TOP ->", x - 55, y + SLOT_H / 2 + 2);
+                    }
+                } else {
+                    g2.setColor(Color.LIGHT_GRAY);
+                    g2.drawRect(x, y, BLOCK_W, SLOT_H - 4);
+                }
+                g2.setColor(Color.GRAY);
+                g2.drawString(String.valueOf(i), x + BLOCK_W + 10, y + SLOT_H / 2 + 2);
+            }
+        }
+    }
 
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(StackVisualizer::new);
+    }
+}                       
+                      
