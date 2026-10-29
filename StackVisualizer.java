@@ -125,7 +125,27 @@ public class StackVisualizer extends JFrame {
         stack.clear();
         int count = random.nextInt(stack.capacity()) + 1;
         for (int i = 0; i < count; i++) {
-            stack.push(random.nextInt(100) + 1);
+            stack.push(random.nextInt(100) + 1); 
+
+           
         }
         refresh("RANDOM: Stack refilled with " + count + " random element(s).", false);
+    }
+
+
+   private void refresh(String message, boolean peeking) {
+        highlightPeek = peeking;
+        statusLabel.setText(message);
+        addToHistory(message);
+        stackPanel.repaint();
+    }
+
+    private void addToHistory(String message) {
+        operationCount++;
+        history.addLast(operationCount + ". " + message);
+        if (history.size() > 10) {
+            history.removeFirst();
+        }
+        historyArea.setText(String.join("\n", history));
+        historyArea.setCaretPosition(historyArea.getDocument().getLength());
     }
