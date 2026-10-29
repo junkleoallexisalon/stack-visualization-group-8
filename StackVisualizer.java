@@ -138,9 +138,9 @@ public class StackVisualizer extends JFrame {
         statusLabel.setText(message);
         addToHistory(message);
         stackPanel.repaint();
-    }
-
-    private void addToHistory(String message) {
+   }
+   
+   private void addToHistory(String message) {
         operationCount++;
         history.addLast(operationCount + ". " + message);
         if (history.size() > 10) {
@@ -149,3 +149,36 @@ public class StackVisualizer extends JFrame {
         historyArea.setText(String.join("\n", history));
         historyArea.setCaretPosition(historyArea.getDocument().getLength());
     }
+
+   private class StackPanel extends JPanel {
+        private static final int SLOT_H = 40;
+        private static final int BLOCK_W = 120;
+
+        StackPanel() {
+            setPreferredSize(new Dimension(300, SLOT_H * ArrayStack.MAX_CAPACITY + 40));
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            Graphics2D g2 = (Graphics2D) g;
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+            int[] items = stack.toArray();
+            int x = (getWidth() - BLOCK_W) / 2;
+            int bottomY = getHeight() - 20;
+
+            for (int i = 0; i < stack.capacity(); i++) {
+                int y = bottomY - (i + 1) * SLOT_H;
+                if (i < items.length) {
+                    boolean isTop = (i == items.length - 1);
+                    if (isTop) {
+                        g2.setColor(highlightPeek ? Color.ORANGE : new Color(80, 170, 90));
+                    } else {
+                        g2.setColor(new Color(110, 160, 220));
+                    }
+                    g2.fillRect(x, y, BLOCK_W, SLOT_H - 4);
+                    g2.setColor(Color.BLACK);
+                    g2.drawRect(x, y, BLOCK_W, SLOT_H - 4);
+                    g2.drawString(String.valueOf(items[i]), x + BLOCK_W / 2 - 8, y + SLOT_H / 2 + 2);
+
