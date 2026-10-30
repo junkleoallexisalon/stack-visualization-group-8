@@ -50,20 +50,15 @@ stack-visualization-group-8/
 ## Stack Implementation
 The stack is a custom array-based bounded stack (`ArrayStack`) with a maximum
 capacity of 10. An `int[]` stores the elements and an `int top` index
-tracks the top element. Methods: `push()`, `pop()`, `peek()`, `isEmpty()`,
-`isFull()`, `size()`, `capacity()`, `clear()` and `toArray()` (returns a copy
-for drawing). The GUI (`StackVisualizer`) only talks to the stack through
+tracks the top element. Methods: `push()`, `pop()`, `peek()`, `isEmpty()`. The GUI (`StackVisualizer`) only talks to the stack through
 these methods and never touches the internal array.
 
-## Screenshots
-
-## AI Disclosure
-- 
+ AI Disclosure
+- Used Claude for guidance
 ## Contributors
-| Member | Contribution |
-|---|---|
-| Jun Kleo Allexis Alon | ArrayStack component (push, pop, peek, clear, toArray) |
-| Nico Gallardo | GUI layout, stack drawing, history |
-| Christian Bantasan | PUSH, POP and PEEK buttons |
-| Jetroh Mejorada | CLEAR, CHECK STACK and RANDOM buttons |
-| Jerwen Baja | Test cases, README and screenshots |
+| Member 
+| Jun Kleo Allexis Alon 
+| Nico Gallardo 
+| Christian Bantasan 
+| Jetroh Mejorada 
+| Jerwen Baja 
