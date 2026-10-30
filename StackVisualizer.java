@@ -3,7 +3,7 @@
    Last Modified: October 12, 2026
    Version: 1.0
    Acknowledgements: claude for guidance.
-   
+*/
 import javax.swing.*;
 import java.awt.*;
 import java.util.LinkedList;
